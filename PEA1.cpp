@@ -23,30 +23,55 @@
 using namespace std;
 using namespace std::chrono;
 
-
+void menu();
 void tspDP(Graph* g, int startVertex);
 void tspBruteForce(Graph*, int);
 
+
+
 int main()
 {
+    
     setlocale(LC_ALL, "polish");
+    
+    char input = ' ';
+
+    while (input != 'q') {
+        menu();
+        cout << endl;
+        cout << "Aby wyjsc wcisnij q" << endl;
+        cout << "Aby powtorzyc wcisjni dowolny klawisz" << endl;
+        input = _getch();
+    }
+
+    return 0;
+}
+
+void menu() {
+    system("cls");
     string path;
     cout << "Ścieżka do pliku: ";
     cin >> path;
 
-    Graph* graph = new Graph(path);
-    cout << graph->instanceName << endl;
-    cout << graph->vertices << endl;
-    graph->printGraph();
+    Graph* g = new Graph(path);
+    g->printGraph();
 
-    cout << endl << endl;
-
-
-    //tspBruteForce(graph, 0);
-    tspDP(graph, 0);
-    _getch();
+    cout << endl;
+    cout << "Wybierz algorytm" << endl;
+    cout << "1.Brute force" << endl;
+    cout << "2.DP" << endl;
+    char input;
+    input = _getch();
+    cout << endl;
+    switch (input) {
+    case '1':
+        tspBruteForce(g, 0);
+        break;
+    case '2':
+        tspDP(g, 0);
+        break;
+    }
 }
-
 
 void tspBruteForce(Graph* g, int startVertex) {
     bool* visited = new bool[g->vertices];

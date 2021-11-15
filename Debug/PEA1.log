@@ -1,0 +1,13 @@
+﻿  PEA1.cpp
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(69,12): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 1 ze zmienną liczbą argumentów ma typ „_To”
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(73,23): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(123,12): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 1 ze zmienną liczbą argumentów ma typ „_To”
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+  PEA1.vcxproj -> E:\Seba\Studia\Semestr 5\PEA\PEA1\Debug\PEA1.exe

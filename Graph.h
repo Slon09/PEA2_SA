@@ -1,10 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "Node.h"
-#include "Edge.h"
-#include "TimeObject.h"
-#include "Stack.h"
 #include <string>
 #include <queue>
 #include <vector>

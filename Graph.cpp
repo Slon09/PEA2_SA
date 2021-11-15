@@ -68,6 +68,8 @@ void Graph::initMatrix()
 
 
 void Graph::printGraph() {
+    cout << endl;
+    cout << this->vertices << endl;
     for (int i = 0; i < this->vertices; i++) {
         for (int j = 0; j < this->vertices; j++)
         {
@@ -75,7 +77,7 @@ void Graph::printGraph() {
         }
         cout << endl;
     }
-    cout << this->bestPath;
+    cout << this->bestPath << endl;
 }
 
 
