@@ -84,7 +84,9 @@ void Graph::printGraph() {
 
 void Graph::tspBruteForce(int sVertex, int vertex, int* bestPathWeight, int currPathWeight, bool* visited, vector<int> currPath, vector<int>* bestPath) 
 {
-        currPath.push_back(vertex);
+        currPath.push_back(vertex); 
+        
+
         if (currPath.size() == this->vertices) {
             currPathWeight += this->matrix[vertex][sVertex];
 
@@ -97,16 +99,15 @@ void Graph::tspBruteForce(int sVertex, int vertex, int* bestPathWeight, int curr
         }
 
         visited[vertex] = true;
-
         for (int i = 0; i < this->vertices; i++) {
-            if (!visited[i] && (i != vertex)) {
-                currPathWeight += this->matrix[vertex][i];
-                this->tspBruteForce(sVertex, i, bestPathWeight, currPathWeight, visited, currPath, bestPath);
+            if (!visited[i]) {
+                currPathWeight += this->matrix[vertex][i];       
+                    this->tspBruteForce(sVertex, i, bestPathWeight, currPathWeight, visited, currPath, bestPath);
                 currPathWeight -= this->matrix[vertex][i];
-                visited[i] = false;
             }
         }
-        
+        visited[vertex] = false;
+        currPath.pop_back();
 }
 
 int Graph::tspDP(int sVertex, int position, int* bestPathWeight, int currPathWeight, int visited, int** memo, int** lastCityArray) {
@@ -141,4 +142,30 @@ int Graph::tspDP(int sVertex, int position, int* bestPathWeight, int currPathWei
 
     lastCityArray[visited][position] = tmpCity;
     return memo[visited][position] = cost;
+}
+
+void Graph::tspBF(int sVertex, int*bestPathWeight, vector<int> *bestPath) {
+
+    vector<int> path;
+    int pathWeight;
+    //path.reserve(static_cast<const unsigned int>(this->vertices + 1));
+
+    for (int i = 0; i < this->vertices; i++) {
+        path.push_back(i);
+    }
+    do {
+
+        int pathWeight = 0;
+        path.push_back(path[0]);
+        for (int i = 0; i < this->vertices; i++) {
+            pathWeight += this->matrix[path[i]][path[i + 1]];
+        }
+        if (pathWeight < *bestPathWeight) {
+            *bestPathWeight = pathWeight;
+            *bestPath = path;
+            float PRD = 100 * (((float)*bestPathWeight - (float)this->bestPath) / (float)this->bestPath);
+            printf("Dlugosc cyklu: %d\t PRD: %0.2f%%\n", *bestPathWeight, PRD);
+        }
+        path.pop_back();
+    } while (next_permutation(path.begin(), path.end()));
 }
