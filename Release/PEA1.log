@@ -1,0 +1,24 @@
+﻿  Edge.cpp
+c1xx : fatal error C1083: Nie można otworzyć pliku źródło: 'Edge.cpp': No such file or directory
+  Graph.cpp
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(147,13): error C2039: „tspBF”: nie jest składową elementu „Graph”
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.h(19): message : zobacz deklarację „Graph”
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(153,25): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(160,29): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(161,27): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(166,65): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\Graph.cpp(166,90): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
+  PEA1.cpp
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(41,23): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(44,13): error C3861: "tspTest": identyfikatora nie odnaleziono
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(127,12): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 1 ze zmienną liczbą argumentów ma typ „_To”
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(131,23): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+E:\Seba\Studia\Semestr 5\PEA\PEA1\PEA1\PEA1.cpp(181,12): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 1 ze zmienną liczbą argumentów ma typ „_To”
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]

@@ -27,22 +27,25 @@ void menu();
 void tspDP(Graph* g, int startVertex);
 void tspBruteForce(Graph*, int);
 
+vector < string> bf_test = { "m6.atsp","m8.atsp", "m9.atsp" , "m10.atsp", "m11.atsp", "m12.atsp", "m13.atsp" };
+vector < string> dp_test = { "m6.atsp","m8.atsp", "m9.atsp", "m10.atsp", "m11.atsp", "m12.atsp", "m13.atsp", "m14.atsp"
+"m15.atsp", "m16.atsp", "gr21.tsp"};
 
+string path = "instances/";
 
 int main()
 {
     
     setlocale(LC_ALL, "polish");
     
-    char input = ' ';
-
-    while (input != 'q') {
-        menu();
-        cout << endl;
-        cout << "Aby wyjsc wcisnij q" << endl;
-        cout << "Aby powtorzyc wcisjni dowolny klawisz" << endl;
-        input = _getch();
+    for (int i = 0; i < bf_test.size(); i++) {
+        Graph* g = new Graph(path + bf_test.at(i));
+        for (int j = 0; j < 50; j++) {
+            tspTest(g, 0, bf_test.at(i));
+        }
+       
     }
+    
 
     return 0;
 }
@@ -73,6 +76,36 @@ void menu() {
     }
 }
 
+
+void tspTest(Graph *g, int startVertex, string instanceName) {
+    bool* visited = new bool[g->vertices];
+    vector<int>* bestPath = new vector<int>;
+    vector<int> currPath;
+
+    int* bestPathWeight = new int;
+    *bestPathWeight = INT_MAX;
+    int currPathWeight = 0;
+
+    for (int i = 0; i < g->vertices; i++) {
+        visited[i] = false;
+    }
+
+    auto start = system_clock::now();
+    g->tspBruteForce(startVertex, startVertex, bestPathWeight, currPathWeight, visited, currPath, bestPath);
+    auto stop = system_clock::now();
+
+    std::time_t start_time = std::chrono::system_clock::to_time_t(start);
+    std::time_t stop_time = std::chrono::system_clock::to_time_t(stop);
+
+    auto duration = duration_cast<milliseconds>(stop - start);
+    
+    std::time_t result = stop_time - start_time;
+    string p = "bfTest/" + instanceName + ".txt";
+    fstream file;
+    file.open(p, ios::out | ios::app);
+    file << result << endl;
+
+}
 void tspBruteForce(Graph* g, int startVertex) {
     bool* visited = new bool[g->vertices];
     vector<int>* bestPath = new vector<int>;
